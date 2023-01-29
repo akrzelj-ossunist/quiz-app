@@ -100,8 +100,9 @@ const home: React.FC = () => {
           <button
             className="mt-24 w-[200px] h-[50px] border-2 border-blue-400 bg-blue-400 text-white shadow-lg font-bold rounded-md active:bg-blue-800"
             onClick={() => {
-              localStorage.setItem("params", JSON.stringify(params));
-              router.push("/game");
+              router.push(
+                `/game?questions=${params.questions}&category=${params.category}&type=${params.type}&difficulty=${params.difficulty}`
+              );
             }}
           >
             Play

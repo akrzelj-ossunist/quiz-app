@@ -1,15 +1,23 @@
 import Modal from "@/components/Modal";
 import useGetQuestionDataQuery from "@/services/getQustions";
 import { MovieList, Movie } from "@/services/interface";
+import { GetServerSideProps } from "next";
+import { useQueryStates, queryTypes } from "next-usequerystate";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { params } from "./home";
 
-const game: React.FC = () => {
+const game: React.FC<{ params: params }> = ({ params: initialParams }) => {
   const router = useRouter();
-  const params: params =
-    typeof window !== "undefined" &&
-    JSON.parse(localStorage.getItem("params") || "");
+  const [params, setParams] = useQueryStates(
+    {
+      category: queryTypes.string.withDefault(initialParams.category || ""),
+      type: queryTypes.string.withDefault(initialParams.type || ""),
+      difficulty: queryTypes.string.withDefault(initialParams.difficulty || ""),
+      questions: queryTypes.string.withDefault(initialParams.questions || ""),
+    },
+    { history: "replace" }
+  );
 
   const [questionNum, setQuestionNum] = useState<number>(1);
 
@@ -19,8 +27,6 @@ const game: React.FC = () => {
 
   const { data: questionData, isLoading } = useGetQuestionDataQuery(params);
   if (isLoading) return <p>Loading...</p>;
-
-  console.log(questionData?.results);
 
   const incorrectAnswers = questionData?.results[
     questionNum - 1
@@ -89,7 +95,6 @@ const game: React.FC = () => {
             <button
               className="w-[200px] h-[50px] border-2 border-blue-400 bg-blue-400 text-white shadow-lg font-bold rounded-md active:bg-blue-800"
               onClick={() => {
-                localStorage.removeItem("params");
                 router.push("/home");
               }}
             >
@@ -104,3 +109,15 @@ const game: React.FC = () => {
 };
 
 export default game;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const params = {
+    category: context.query.category || "",
+    type: context.query.type || "",
+    questions: context.query.questions || "",
+    difficulty: context.query.difficulty || "",
+  };
+  return {
+    props: { params },
+  };
+};
