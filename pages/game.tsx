@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { params } from "./index";
 
-const game: React.FC<{ params: params }> = ({ params: initialParams }) => {
+const Game: React.FC<{ params: params }> = ({ params: initialParams }) => {
   const [params, setParams] = useQueryStates(
     {
       category: queryTypes.string.withDefault(initialParams.category || ""),
@@ -118,7 +118,7 @@ const game: React.FC<{ params: params }> = ({ params: initialParams }) => {
   );
 };
 
-export default game;
+export default Game;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const params = {
