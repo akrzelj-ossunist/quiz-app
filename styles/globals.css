@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+option{
+    font-size: large;
+    color: slategrey;
+    font-weight: 600;
+}
