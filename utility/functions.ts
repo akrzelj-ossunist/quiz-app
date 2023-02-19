@@ -22,7 +22,7 @@ export function getShuffledAnswers(correct: string | undefined, incorrect: any[]
       return shuffleArray(correctAnswer.concat(incorrectAnswers || []));
 }
 
-export function replaceChars(string: string){
+export function replaceChars(string: string) :string{
   return string.replace(/&quot;/g, '"')
   .replace(/&#039;/g, "'")
   .replace(/&ldquo;/g, "'")
