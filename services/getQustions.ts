@@ -1,4 +1,4 @@
-import { params } from "@/pages/home";
+import { params } from "@/pages/index";
 import { Movie, MovieList } from "@/services/interface";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
