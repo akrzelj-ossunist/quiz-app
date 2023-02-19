@@ -25,9 +25,7 @@ Prerequisite: Node Package Manager (npm) download can be found <a href="https://
 
 Home:
 ![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/home-desk.png)
-![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/home-phone.png)
-
-Game:
 ![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/game-desk.png)
+![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/game-desk-2.png)
+![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/home-phone.png)
 ![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/game-phone.png)
-![image](https://github.com/akrzelj-ossunist/quiz-app/blob/main/public/game-phone-2.png)
