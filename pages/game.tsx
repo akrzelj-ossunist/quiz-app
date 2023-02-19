@@ -78,6 +78,7 @@ const game: React.FC<{ params: params }> = ({ params: initialParams }) => {
             <div className="flex w-full justify-evenly phone:flex-col phone:h-auto">
               {answers.map((answer: any) => (
                 <button
+                  key={answer.content}
                   className={`py-2 px-4 ease-[cubic-bezier(1, 0, 0, 0)] duration-500 border-1 shadow-lg bg-white text-slate-600 border-slate-400 rounded-md hover:scale-105 my-2 ${
                     showCorrect
                       ? answer.value
